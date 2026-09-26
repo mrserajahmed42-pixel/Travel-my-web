@@ -2059,3 +2059,276 @@ footer {
     object-fit: contain;
     display: block;
 }
+/* =========================================
+   MOBILE RESPONSIVE DESIGN
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+/* Images should never go outside the screen */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Prevent large sections from forcing horizontal scrolling */
+section,
+header,
+footer,
+main,
+.container {
+    max-width: 100%;
+}
+
+/* ================================
+   TABLET
+   ================================ */
+
+@media (max-width: 900px) {
+
+    .container {
+        width: 92%;
+        margin: auto;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 7vw, 4rem);
+    }
+
+    h2 {
+        font-size: clamp(1.7rem, 5vw, 3rem);
+    }
+
+    .hero {
+        padding: 100px 20px;
+    }
+
+    .cards,
+    .travel-grid,
+    .hobbies-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* ================================
+   MOBILE PHONE
+   ================================ */
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 100%;
+        margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+        width: 100%;
+        padding: 12px 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    /* HERO */
+
+    .hero {
+        min-height: 100vh;
+        width: 100%;
+        padding: 80px 15px 50px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: clamp(2rem, 11vw, 4rem);
+        line-height: 1.1;
+        word-wrap: break-word;
+    }
+
+    .hero h2,
+    .hero p {
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+
+    /* BUTTONS */
+
+    .buttons,
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .buttons a,
+    .buttons button,
+    .hero-buttons a,
+    .hero-buttons button {
+        width: 90%;
+        max-width: 320px;
+    }
+
+    /* CARDS */
+
+    .cards,
+    .travel-grid,
+    .hobbies-grid,
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* IMAGES */
+
+    .card img,
+    .travel-card img,
+    .hobby-card img,
+    .gallery-item img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    /* STATS */
+
+    .stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .stat {
+        width: 100%;
+    }
+
+    /* MODAL */
+
+    .modal {
+        padding: 15px;
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 95%;
+        max-width: 95%;
+        margin: auto;
+        padding: 15px;
+    }
+
+    .modal-gallery {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .modal-gallery img {
+        width: 100%;
+        height: auto;
+        max-height: 70vh;
+        object-fit: contain;
+    }
+
+    /* LIGHTBOX */
+
+    .lightbox {
+        padding: 10px;
+    }
+
+    .lightbox img {
+        max-width: 95vw;
+        max-height: 85vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* FOOTER */
+
+    footer {
+        width: 100%;
+        padding: 30px 15px;
+        text-align: center;
+    }
+
+    /* TEXT */
+
+    p {
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+
+    /* LONG WORDS / LINKS */
+
+    a {
+        overflow-wrap: break-word;
+    }
+}
+
+
+/* ================================
+   VERY SMALL PHONES
+   ================================ */
+
+@media (max-width: 380px) {
+
+    .hero {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        width: 94%;
+    }
+}
