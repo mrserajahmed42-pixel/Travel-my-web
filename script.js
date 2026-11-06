@@ -523,29 +523,65 @@ const hobbyData = {
 function openHobby(type) {
 
     const modal = document.getElementById("hobbyModal");
-
     const title = document.getElementById("hobbyTitle");
-
     const text = document.getElementById("hobbyText");
+    const reader = document.getElementById("ikigaiReader");
 
-    if (!modal || !title || !text) {
-        return;
-    }
+    if (!modal || !title || !text) return;
 
     const information = hobbyData[type];
 
-    if (!information) {
+    if (!information) return;
+
+    title.textContent = information.title;
+    text.textContent = information.text;
+
+    if (reader) {
+        reader.style.display =
+            type === "reading" ? "block" : "none";
+    }
+
+    modal.classList.add("show");
+    document.body.classList.add("no-scroll");
+
+    if (type === "reading") {
+        openIkigaiBook();
+    }
+}
+
+let ikigaiBook;
+let ikigaiRendition;
+
+function openIkigaiBook() {
+
+    if (!window.ePub) {
+        alert("EPUB reader failed to load.");
         return;
     }
 
-    title.textContent = information.title;
+    if (ikigaiRendition) return;
 
-    text.textContent = information.text;
+    ikigaiBook = ePub("Ikigai.epub");
 
-    modal.classList.add("show");
+    ikigaiRendition = ikigaiBook.renderTo("bookViewer", {
+        width: "100%",
+        height: "500px",
+        spread: "none"
+    });
 
-    document.body.classList.add("no-scroll");
+    ikigaiRendition.display();
+}
 
+function bookNext() {
+    if (ikigaiRendition) {
+        ikigaiRendition.next();
+    }
+}
+
+function bookPrev() {
+    if (ikigaiRendition) {
+        ikigaiRendition.prev();
+    }
 }
 
 
