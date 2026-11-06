@@ -710,29 +710,9 @@
                                 perspectives through books.
                             </p>
 
-                           ```html
-<details class="reading-books">
-```
-
-```
-<summary>Discover</summary>
-
-<div class="reading-downloads">
-
-    <a href="My-Book-1.pdf" download>
-        📖 Download My Book 1 (ikigai) 
-    </a>
-
-    <a href="My-Book-2.pdf" download>
-        📖 Download My Book 2 (Atomic habits ) 
-    </a>
-
-</div>
-```
-
-```html
-</details>
-```
+                        <button onclick="openHobby('reading')">
+    Discover
+</button>
 
 
                         </article>
@@ -1152,6 +1132,18 @@
             <p id="hobbyText">
                 Discover more about this hobby.
             </p>
+            <div id="ikigaiReader" style="display:none;">
+
+    <h3>My Book – Ikigai</h3>
+
+    <div id="bookViewer"
+         style="height:500px; width:100%; background:white;">
+    </div>
+
+    <button onclick="bookPrev()">Previous</button>
+    <button onclick="bookNext()">Next</button>
+
+</div>
 
         </div>
 
@@ -1191,7 +1183,9 @@
          JAVASCRIPT FILE
     ================================================== -->
 
-    <script src="script.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
+
+<script src="script.js"></script>
 
 </body>
 
