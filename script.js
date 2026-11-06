@@ -574,30 +574,28 @@ function closeHobbyModal() {
 
 function openLightbox(element) {
 
-```
-const lightbox = document.getElementById("lightbox");
-const lightboxImage = document.getElementById("lightboxImage");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
 
-if (!lightbox || !lightboxImage) {
-    return;
-}
+    if (!lightbox || !lightboxImage || !element) {
+        return;
+    }
 
-// Find the actual image inside the clicked gallery DIV
-const image = element.querySelector("img");
+    const image = element.tagName === "IMG"
+        ? element
+        : element.querySelector("img");
 
-if (!image) {
-    return;
-}
+    if (!image || !image.src) {
+        console.error("Gallery image not found.");
+        return;
+    }
 
-// Get the actual image source and description
-lightboxImage.src = image.src;
-lightboxImage.alt = image.alt;
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt || "Gallery image";
 
-lightbox.classList.add("show");
+    lightbox.classList.add("show");
 
-document.body.classList.add("no-scroll");
-```
-
+    document.body.classList.add("no-scroll");
 }
 
 
